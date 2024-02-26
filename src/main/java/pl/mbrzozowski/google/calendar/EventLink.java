@@ -102,7 +102,9 @@ public class EventLink implements Supplier<String> {
         String dateTimeAsString = dateTime.toString();
         dateTimeAsString = dateTimeAsString.replaceAll("-", "").replaceAll(":", "");
         int index = dateTimeAsString.indexOf(".");
-        dateTimeAsString = dateTimeAsString.substring(0, index);
+        if (index >= 0) {
+            dateTimeAsString = dateTimeAsString.substring(0, index);
+        }
         return dateTimeAsString;
     }
 
