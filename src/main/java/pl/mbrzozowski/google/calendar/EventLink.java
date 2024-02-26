@@ -99,13 +99,9 @@ public class EventLink implements Supplier<String> {
 
     @NotNull
     private String getDateAsString(@NotNull LocalDateTime dateTime) {
-        String dateTimeAsString = dateTime.toString();
-        dateTimeAsString = dateTimeAsString.replaceAll("-", "").replaceAll(":", "");
-        int index = dateTimeAsString.indexOf(".");
-        if (index >= 0) {
-            dateTimeAsString = dateTimeAsString.substring(0, index);
-        }
-        return dateTimeAsString;
+        return dateTime.getYear() + String.format("%02d", dateTime.getMonthValue()) +
+                String.format("%02d", dateTime.getDayOfMonth()) + "T" + String.format("%02d", dateTime.getHour()) +
+                String.format("%02d", dateTime.getMinute()) + String.format("%02d", dateTime.getSecond());
     }
 
     /**
