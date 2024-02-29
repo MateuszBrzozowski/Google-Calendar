@@ -49,6 +49,7 @@ public class EventLink implements Supplier<String> {
         if (period <= 0) {
             throw new IllegalArgumentException("Non-positive period.");
         }
+        this.periodType = PeriodType.MINUTES;
         this.period = period;
     }
 
